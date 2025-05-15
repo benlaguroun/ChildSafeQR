@@ -185,37 +185,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t py-6">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex items-center gap-2 font-semibold">
-            <QrCode className="h-5 w-5 text-blue-500" />
-            <span>ChildSafeQR</span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} ChildSafeQR. All rights reserved.
-          </p>
-          <nav className="flex gap-4">
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground hover:underline"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground hover:underline"
-            >
-              Terms
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground hover:underline"
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }
