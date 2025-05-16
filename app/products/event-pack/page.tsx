@@ -1,8 +1,35 @@
+"use client";
+
 import { QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import { useCart } from "@/store/useCart";
+
+const products = [
+  {
+    id: "event-pack-10",
+    name: "10-Pack Event Bracelets",
+    image: "/products/event-pack-10.jpg",
+    price: 29.99,
+  },
+  {
+    id: "event-pack-50",
+    name: "50-Pack Event Bracelets",
+    image: "/products/event-pack-50.jpg",
+    price: 129.99,
+  },
+  {
+    id: "event-pack-100",
+    name: "100-Pack Event Bracelets",
+    image: "/products/event-pack-100.jpg",
+    price: 229.99,
+  },
+];
 
 export default function EventPackPage() {
+  const { addToCart } = useCart(); // assumes useCart has addToCart(item)
+
   return (
     <main className="bg-white text-gray-800">
       {/* Hero Section */}
@@ -32,39 +59,72 @@ export default function EventPackPage() {
             Why Choose Event Packs?
           </h2>
           <div className="grid md:grid-cols-2 gap-10">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Custom QR Codes</h3>
-              <p>
-                Each bracelet comes with a scannable QR code that links to
-                individual or group profiles, emergency contacts, or event
-                check-ins.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">
-                Color & Logo Options
-              </h3>
-              <p>
-                Choose your brand colors or event theme. Add your logo for a
-                professional, cohesive identity across all attendees.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Bulk Discounts</h3>
-              <p>
-                Special pricing available for orders of 100+ units. The more you
-                order, the more you save.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">
-                Durable & Waterproof
-              </h3>
-              <p>
-                Designed to last through full-day events, outdoor activities,
-                and even poolside fun.
-              </p>
-            </div>
+            {[
+              [
+                "Custom QR Codes",
+                "Each bracelet comes with a scannable QR code...",
+              ],
+              [
+                "Color & Logo Options",
+                "Choose your brand colors or event theme...",
+              ],
+              [
+                "Bulk Discounts",
+                "Special pricing available for orders of 100+ units...",
+              ],
+              [
+                "Durable & Waterproof",
+                "Designed to last through full-day events...",
+              ],
+            ].map(([title, desc]) => (
+              <div key={title}>
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <p>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Section */}
+      <section className="py-20 bg-gray-50 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Order Your Pack
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white shadow-md rounded-xl overflow-hidden"
+              >
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={600}
+                  height={400}
+                  className="w-full h-60 object-cover"
+                />
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-lg font-semibold">{product.name}</h3>
+                  <p className="text-gray-700 text-md">
+                    ${product.price.toFixed(2)}
+                  </p>
+                  <Button
+                    onClick={() =>
+                      addToCart({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        quantity: 1,
+                      })
+                    }
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -76,31 +136,16 @@ export default function EventPackPage() {
             Perfect for Every Occasion
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h4 className="font-semibold text-lg mb-2">School Field Trips</h4>
-              <p className="text-sm text-gray-700">
-                Easily identify students and access emergency contact info in
-                seconds.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-lg mb-2">
-                Theme Parks & Camps
-              </h4>
-              <p className="text-sm text-gray-700">
-                Quickly reunite lost kids with guardians and enable fast
-                check-ins.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-lg mb-2">
-                Community Festivals
-              </h4>
-              <p className="text-sm text-gray-700">
-                Organize large groups, enable digital interaction, and promote
-                your event brand.
-              </p>
-            </div>
+            {[
+              ["School Field Trips", "Easily identify students..."],
+              ["Theme Parks & Camps", "Quickly reunite lost kids..."],
+              ["Community Festivals", "Organize large groups..."],
+            ].map(([title, desc]) => (
+              <div key={title}>
+                <h4 className="font-semibold text-lg mb-2">{title}</h4>
+                <p className="text-sm text-gray-700">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
