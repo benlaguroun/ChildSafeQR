@@ -32,7 +32,7 @@ export default function BasicQRBraceletPage() {
         </Button>
 
         <div className="mt-6">
-          <Link href="/products">
+          <Link href="/page">
             <span className="text-blue-600 hover:underline">
               ← Back to all products
             </span>
