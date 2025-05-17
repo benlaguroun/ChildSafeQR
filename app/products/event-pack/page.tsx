@@ -10,19 +10,22 @@ const products = [
   {
     id: "event-pack-10",
     name: "10-Pack Event Bracelets",
-    image: "/products/event-pack-10.jpg",
+    image:
+      "https://i.pinimg.com/736x/65/d8/0d/65d80deddeaaee6ae748913ac9c65eae.jpg",
     price: 29.99,
   },
   {
     id: "event-pack-50",
     name: "50-Pack Event Bracelets",
-    image: "/products/event-pack-50.jpg",
+    image:
+      "https://i.pinimg.com/736x/29/4e/95/294e95ffad63ae94f31a859d1a9c703e.jpg",
     price: 129.99,
   },
   {
     id: "event-pack-100",
     name: "100-Pack Event Bracelets",
-    image: "/products/event-pack-100.jpg",
+    image:
+      "https://i.pinimg.com/736x/f1/ec/96/f1ec968c984706cb2bfeb2fe21331ca2.jpg",
     price: 229.99,
   },
 ];

@@ -10,7 +10,7 @@ export default function BasicQRBraceletPage() {
         {/* Image Section */}
         <div className="flex justify-center">
           <Image
-            src="/images/basic-qr-bracelet.png" // Replace with your image path
+            src="https://i.pinimg.com/736x/7a/2b/2d/7a2b2d8dad3d6679d9a0b9d23eaaa10f.jpg" // Replace with your image path
             alt="Basic QR Bracelet"
             width={400}
             height={400}
