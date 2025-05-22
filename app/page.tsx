@@ -6,25 +6,6 @@ import { ArrowRight, QrCode, MapPin, Bell } from "lucide-react";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="border-b">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl">
-            <QrCode className="h-6 w-6 text-blue-500" />
-            <span>ChildSafeQR</span>
-          </div>
-          <nav className="flex gap-4">
-            <Link href="/login" className="text-sm font-medium hover:underline">
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              className="text-sm font-medium hover:underline"
-            >
-              Sign Up
-            </Link>
-          </nav>
-        </div>
-      </header>
       <main className="flex-1">
         <section className="bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
           <div className="container flex flex-col items-center text-center">
